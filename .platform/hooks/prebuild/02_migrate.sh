@@ -1,11 +1,17 @@
 #!/bin/bash
-# Activar entorno virtual
-source /var/app/venv/bin/activate
+# Ruta exacta al entorno virtual
+VENV_PATH="/var/app/venv"
+
+# Activar entorno virtual usando la ruta completa
+source $VENV_PATH/bin/activate
+
+# Usar el python del entorno virtual explícitamente
+PYTHON_CMD="$VENV_PATH/bin/python3"
 
 # Configurar PYTHONPATH
 export PYTHONPATH=/var/app/staging:$PYTHONPATH
 
-# Ejecutar migraciones
+# Navegar al directorio y ejecutar migraciones
 cd /var/app/staging
-python manage.py makemigrations
-python manage.py migrate
+$PYTHON_CMD manage.py makemigrations
+$PYTHON_CMD manage.py migrate
