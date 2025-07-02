@@ -1,0 +1,21 @@
+{% extends 'core/base.html' %}
+
+
+{% block title %}_{% endblock %}
+
+{% block content %}
+<div class="flex flex-col items-center">
+    <div class ="w-[500px]"> 
+
+        <h1 class="font-bold text-xl">{{ form.instance.pk|yesno:"Editar Producto,Agregar Producto" }}</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <a class=" rounded-md   p-2 px-3 border-[2px] hover:bg-neutral-800  hover:text-neutral-100" href="{% url 'lista_productos' %}">Volver</a>
+            <button class =" rounded-md bg-green-700 p-2 px-3  text-neutral-100 hover:bg-green-700 m-3 " type="submit">Guardar</button>
+        </form>
+    </div>
+
+</div>
+
+{% endblock %}

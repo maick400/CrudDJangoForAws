@@ -1,0 +1,22 @@
+{% extends 'core/base.html' %}
+
+
+{% block title %}Eliminar producto{% endblock %}
+
+{% block content %}
+<div class=" flex justify-center items-center w-full h-full bg-neutral-300">
+
+    <div class="shadow-2xl p-5 bg-neutral-100 rounded-lg">
+
+        <h2 class="text-xl">¿Estás seguro que deseas eliminar "{{ producto.descripcion }}"?</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="py-2 flex justify-end items-center gap-3">
+                <button class = "rounded-md bg-red-700 p-2 px-3  text-neutral-100 " type="submit">Sí, eliminar</button>
+                <a class="rounded-md   p-2 px-3 border-[2px] hover:bg-neutral-800  hover:text-neutral-100" href="{% url 'lista_productos' %}">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

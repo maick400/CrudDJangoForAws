@@ -1,0 +1,49 @@
+{% extends 'core/base.html' %} {% block title %}Lista de Productos{% endblock %}
+{% block content %}
+<div class="flex items-center px-4">
+  <h1 class="flex-1 font-bold text-lg">Lista de Productos</h1>
+  <a
+    class="p-2 bg-green-700 text-neutral-200 rounded-md px-4 hover:bg-green-800 flex items-center"
+    href="{% url 'agregar_producto' %}"
+    >
+            <span class="material-icons-outlined ">add</span>
+
+            Agregar Producto</a
+  >
+</div>
+<div class="flex flex-wrap justify-center gap-3">
+  {% for producto in productos %}
+  <div
+    class="w-[250px] h-[300px] shadow-xl rounded-xl border-[2px] border-neutral-300 p-4 flex flex-col items-center relative"
+  >
+    <div class="text-center text-slate-600 font-bold text-xl border-b-2 mb-2">
+      {{ producto.descripcion }}
+    </div>
+    <div class="flex-1 flex flex-col items-center">
+      <img
+        class="bg-neutral-700 w-32 h-32 rounded-full shadow-md"
+        src="https://images.squarespace-cdn.com/content/v1/646bfdab011e7a19cbfed8c2/e94877a7-e906-46af-a011-e5d87b630a49/Icons+%288%29.png"
+      />
+      <div class="w-full font-bold text-slate-800 text-2xl text-center">
+        ${{ producto.precio }}
+      </div>
+      <div class="w-full text-center">{{ producto.stock }} U.</div>
+    </div>
+    <div class="flex justify-end w-full">
+      <!-- Outlined -->
+      <a href="{% url 'editar_producto' producto.id %}">
+        
+          <span class="material-icons-outlined p-2 bg-neutral-500 text-neutral-100 rounded-full ">edit</span>
+      </a>
+      <a
+        class="absolute top-0 right-0 m-2"
+        href="{% url 'eliminar_producto' producto.id %}"
+      >
+        <span class="material-icons-outlined ">close</span>
+      </a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}
