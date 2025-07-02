@@ -15,3 +15,5 @@ export PYTHONPATH=/var/app/staging:$PYTHONPATH
 cd /var/app/staging
 $PYTHON_CMD manage.py makemigrations
 $PYTHON_CMD manage.py migrate
+
+$PYTHON_CMD manage.py runserver 0.0.0.0:8000
