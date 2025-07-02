@@ -1,3 +1,3 @@
 
 #!/bin/bash
-sudo yum install -y python3-pip 
+sudo yum install -y python3-pip
