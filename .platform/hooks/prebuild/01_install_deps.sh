@@ -8,4 +8,4 @@ python3 -m venv /var/app/venv
 # Activar el entorno y instalar dependencias
 source /var/app/venv/bin/activate
 pip install --upgrade pip
-pip install -r /var/app/staging/requirements.txt
+pip install --no-cache-dir -r /var/app/staging/requirements.txt

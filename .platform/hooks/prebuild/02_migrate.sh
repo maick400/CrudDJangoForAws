@@ -1,10 +1,11 @@
 #!/bin/bash
-# Activar el entorno virtual
+# Activar entorno virtual
 source /var/app/venv/bin/activate
 
-# Navegar al directorio de la aplicación
-cd /var/app/staging
+# Configurar PYTHONPATH
+export PYTHONPATH=/var/app/staging:$PYTHONPATH
 
 # Ejecutar migraciones
+cd /var/app/staging
 python manage.py makemigrations
 python manage.py migrate
