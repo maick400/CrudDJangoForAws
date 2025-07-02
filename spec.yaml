@@ -1,6 +1,1 @@
-packages:
-  yum:
-    postgresql-devel: []
-    python3-devel: []
-include_files:
-  ".platform/nginx/conf.d/custom.conf": "/etc/nginx/conf.d/custom.conf"
+python manage.py runserver 0.0.0.0:8000
